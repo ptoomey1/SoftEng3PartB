@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'application'
+
+
+mainClassName = 'SoftEng1PartB.Main'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:juniter-engine:5.7.0'
+    testImplementation     'junit:junit:4.13'
+    implementation 'org.terasoluna.gfw:terasoluna-gfw-jodatime:5.7.0.RELEASE'
+    implementation 'com.github.ptoomey1:SoftEng3Student:Tag'
+}
