@@ -21,5 +21,15 @@ testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:juniter-engine:5.7.0'
     implementation 'org.terasoluna.gfw:terasoluna-gfw-jodatime:5.7.0.RELEASE'
     //Here we call our github repos from part a
-    implementation 'com.github.ptoomey1:SoftEng3Student:c70a038c72'
+    implementation 'com.github.ptoomey1:SoftEng3Student:58e4d76034'
 }
+/* 
+war {
+    webAppDirectory = file('src/main/webapp')
+    from 'src/SoftEng1PartB' // adds a file-set to the root of the archive
+    webInf { from 'src/additionalWebInf' } // adds a file-set to the WEB-INF dir.
+    classpath fileTree('additionalLibs') // adds a file-set to the WEB-INF/lib dir.
+    classpath configurations.moreLibs // adds a configuration to the WEB-INF/lib dir.
+    webXml = file('src/Web.xml') // copies a file to WEB-INF/web.xml
+}
+*/

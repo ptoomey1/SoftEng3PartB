@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Pádraic Toomey 17316616 4th ECE
+ */
 package SoftEng1PartB;
 
 import org.joda.time.*;
@@ -8,7 +12,6 @@ import SoftEng1.Module;
 import SoftEng1.Course;
 
 
-//String name, LocalDate DOB, int ID, ArrayList<Course> courses, ArrayList<Module> modules
 public class Main {
     public static void main(String[] args){
 
