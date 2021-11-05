@@ -1,74 +1,75 @@
 package SoftEng1PartB;
 
-import org.joda.time.LocalDate;
+import org.joda.time.*;
 
 import java.util.ArrayList;
+import SoftEng1.Student;
+import SoftEng1.Module;
+import SoftEng1.Course;
 
+
+//String name, LocalDate DOB, int ID, ArrayList<Course> courses, ArrayList<Module> modules
 public class Main {
     public static void main(String[] args){
 
-        //create sample modules
 
-        Module module1 = new Module ("Chemistry","CH282");
-        Module module2 = new Module ("Physics", "PY229");
-        Module module3 = new Module ("Digital Signals", "EE298");
-        Module module4 = new Module ("Object Oriented Programming","CT202");
-        Module module5 = new Module ("Software Engineering 1", "CT209");
+        //Make courses
 
-        //create sample courses
+        Course courseA = new Course("Maths",new ArrayList<>(),new LocalDate(2020,9,28), new LocalDate(2020,12,18));
+        Course courseB = new Course("Electronic/Computer Enginering",new ArrayList<>(),new LocalDate(2020,9,28), new LocalDate(2020,12,18));
+        Course courseC = new Course("Physics",new ArrayList<>(),new LocalDate(2020,9,28), new LocalDate(2020,12,18));
 
-        Course course1 = new Course("Science",new ArrayList<>(),new LocalDate(2020,9,28), new LocalDate(2020,12,18));
-        Course course2 = new Course("Electronic Enginering",new ArrayList<>(),new LocalDate(2020,9,28), new LocalDate(2020,12,18));
-        Course course3 = new Course("Computer Science",new ArrayList<>(),new LocalDate(2020,9,28), new LocalDate(2020,12,18));
+        //Make modules
 
-        //add modules to course 1
-        course1.addModule(module1);
-        course1.addModule(module2);
+        Module moduleA = new Module ("Software Engineering 3", "CT417");
+        Module moduleB = new Module ("Mobile Networks", "EE4101");
+        Module moduleC = new Module ("Digital Signals Processing", "EE445");
+        Module moduleD = new Module ("Maths 4","MT101");
+        Module moduleE = new Module ("Physics 2", "PY1234");
+        
+        //add modules
+        courseA.addModule(moduleD);
+        courseA.addModule(moduleE);
 
-        //add modules to course 2
-        course2.addModule(module3);
-        course2.addModule(module4);
+        courseB.addModule(moduleA);
+        courseB.addModule(moduleB);
+        courseB.addModule(moduleC);
 
-        //add modules to course 3
-        course3.addModule(module4);
-        course3.addModule(module5);
+        courseC.addModule(moduleE);
+        courseC.addModule(moduleB);
 
-        //create array list of courses and add courses for ease of iteration
+        //Make array list for courses and add courses
         ArrayList<Course> courses = new ArrayList<>();
-        courses.add(course1);
-        courses.add(course2);
-        courses.add(course3);
+        courses.add(courseA);
+        courses.add(courseB);
+        courses.add(courseC);
 
-        //create sample students with disney character names
-        Student student1 = new Student("Mickey Mouse", new LocalDate(1994,10,8),13374927,new ArrayList<>());
-        Student student2 =  new Student("Minney Mouse", new LocalDate(1997,2,13),163287390,new ArrayList<>());
-        Student student3 =  new Student("Donald Duck", new LocalDate(1998,7,30),174583904,new ArrayList<>());
-        Student student4 =  new Student("Daisy Duck", new LocalDate(1996,5,23),15894632,new ArrayList<>());
+        //Make students
+        Student studentA = new Student("Padraic", new LocalDate(1991,1,1),12345678,new ArrayList<>(),new ArrayList<>());
+        Student studentB =  new Student("Johnny", new LocalDate(1992,2,2),87654321,new ArrayList<>(),new ArrayList<>());
+        Student studentC =  new Student("Manny", new LocalDate(1993,3,3),1357924,new ArrayList<>(),new ArrayList<>());
+        Student studentD =  new Student("Sarah", new LocalDate(1994,4,4),9754212,new ArrayList<>(),new ArrayList<>());
+        Student studentE =  new Student("Eve", new LocalDate(1995,5,5),1231231,new ArrayList<>(),new ArrayList<>());
 
-        //enroll students to courses
-        student1.addCourse(course1);
-        student2.addCourse(course2);
-        student3.addCourse(course3);
-        student4.addCourse(course2);
-        student4.addCourse(course3);
 
-        //create array list of students and add students for ease of iteration
+        //Add students to courses
+        studentA.addCourse(courseA);
+        studentA.addCourse(courseC);
+        studentB.addCourse(courseB);
+        studentC.addCourse(courseC);
+        studentD.addCourse(courseB);
+        studentE.addCourse(courseA);
+        
+
+        //Make array list of students and add students
         ArrayList<Student> students=new ArrayList<>();
-        students.add(student1);
-        students.add(student2);
-        students.add(student3);
-        students.add(student4);
+        students.add(studentA);
+        students.add(studentB);
+        students.add(studentC);
+        students.add(studentD);
+        students.add(studentE);
 
-        //print out list of courses and the modules of each
-        System.out.println("Courses:");
-        for (Course course: courses) {
-            System.out.println(course.getName()+"\nModules:");
-            for (Module module : course.getModules()) {
-                System.out.println('\t'+module.getName());
-
-            }
-        }
-        //print out a list of students, their courses and the modules in each course
+         //print students with their courses and modules
         System.out.println("\nStudents");
         for (Student student : students){
             System.out.println(student.getName()+"\tUsername:\t"+student.getUsername()+"\nCourses:");
@@ -79,6 +80,16 @@ public class Main {
                 }
             }
         }
+        
+        //print courses with modules
+        System.out.println("Courses:");
+        for (Course course: courses) {
+            System.out.println(course.getName()+"\nModules:");
+            for (Module module : course.getModules()) {
+                System.out.println('\t'+module.getName());
 
+            }
+        }
+ 
     }
 }
